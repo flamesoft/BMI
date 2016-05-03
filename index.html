@@ -14,8 +14,8 @@
     <div class="medium-6 columns">
       <h1>BMI Calculator</h1>
       <form>
-        <input type="radio" name="type" value="metric"> Metric<br />
-        <input type="radio" name="type" value="imperial"> Imperial<br />
+        <input type="radio" id="radio_metric" name="type" value="metric" onClick="set_type('metric')"> Metric<br />
+        <input type="radio" id="radio_imperial" name="type" value="imperial" onClick="set_type('imperial')"> Imperial<br />
         <input type="text" id="weight" placeholder="Weight" />
         <input type="text" id="height" placeholder="Height" />
         <input type="button" id="calculate" value="Calculate" placeholder="Calculate" class="success button"/>
@@ -38,6 +38,21 @@
         $('#display_value').html('<br />Your BMI is ' + person.bmiValue);
         $('#display_message').html('and you are ' + person.bmiMessage);
       });
+
     });
+
+    function set_type(type){
+      var weight_box = document.getElementById("weight");
+      var height_box = document.getElementById("height");
+      if(type == 'metric'){
+        weight_box.setAttribute('placeholder', "weight in kg");
+        height_box.setAttribute('placeholder', "height in cm");
+      }
+      else{
+        weight_box.placeholder = "weight in lbs";
+        height_box.placeholder = "height in inch";
+      }
+    }
+
   </script>
 </html>
