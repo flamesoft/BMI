@@ -3,7 +3,12 @@ function Person(attr) {
   this.height = attr.height;
 };
 
-Person.prototype.calculate_bmi = function() {
+Person.prototype.calculate_bmi = function(type) {
   calculator = new BMICalculator();
-  calculator.metric_bmi(this);
+  if(type == "metric"){
+    calculator.metric_bmi(this);
+  }
+  else if(type == "imperial"){
+    calculator.imperial_bmi(this);
+  }
 };

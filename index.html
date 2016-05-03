@@ -23,10 +23,11 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('#calculate').click(function(){
+        var type = $('input[name="type"]:checked').val();
         var w = parseFloat($('#weight').val());
         var h = parseFloat($('#height').val());
         var person = new Person({weight: w, height: h});
-        person.calculate_bmi();
+        person.calculate_bmi(type);
         $('#display_value').html('<br />Your BMI is ' + person.bmiValue);
         $('#display_message').html('and you are ' + person.bmiMessage);
       });
